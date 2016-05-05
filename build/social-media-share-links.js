@@ -46,10 +46,15 @@ function twitter(url, text, via) {
   });
 }
 
-function facebook(url) {
+function facebook(url, message) {
   assertProvided(url, 'facebook');
+  assertProvided(message, 'facebook');
 
-  return 'https://facebook.com/sharer.php' + (0, _utils.objectToGetParams)({ u: url });
+  return "https://www.facebook.com/dialog/feed?"
+        + "app_id=" + "233144983724240"
+        + "&display=popup&caption=" + message
+        + "&link=" + url
+        + "&redirect_uri=https://witch-word.com/";
 }
 
 function googlePlus(url) {
