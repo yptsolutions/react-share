@@ -33,10 +33,15 @@ export function twitter(url, text, via, hashtags = []) {
   });
 }
 
-export function facebook(url) {
+export function facebook(url, message) {
   assertProvided(url, 'facebook');
+  assertProvided(message, 'facebook');
 
-  return `https://facebook.com/sharer.php` + objectToGetParams({u: url});
+  return "https://www.facebook.com/dialog/feed?"
+        + "app_id=" + "233144983724240"
+        + "&display=popup&caption=" + message
+        + "&link=" + url
+        + "&redirect_uri=https://witch-word.com/";
 }
 
 export function googlePlus(url) {
